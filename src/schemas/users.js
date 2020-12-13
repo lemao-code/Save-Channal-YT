@@ -1,12 +1,11 @@
-export default class Users {
+export default class UserSchema {
     static schema = {
         name: "user",
-        pass: "password",
-        primaryKey: "id",
+        primaryKey: 'id',
         properties: {
-            id: { type: 'int', indexed: true},
+            id: 'string',
             name: "string",
-            password: "string"
+            pass: "string"
         }
     }
 }
