@@ -5,12 +5,12 @@ import Register from './Register'
 import Login from './Login'
 
 
-export default function ComponentModal ({visibleRegister, visibleLogin}) {
+export default function ComponentModal ({visibleRegister, visibleLogin, navigation}) {
     return  (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <ModalContainer >
-            <Register visible={visibleRegister} />
-            <Login visible={visibleLogin} />
+            <Register navigation={navigation} visible={visibleRegister} />
+            <Login navigation={navigation} visible={visibleLogin} />
         </ModalContainer>
         </TouchableWithoutFeedback>
     )

@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import {Context} from '../Context/AuthContext'
 import {Keyboard, Text} from 'react-native'
 import { ContainerRegister, Input, Title, ButtonSignUp} from './style'
 import getRealm from '../services/realm'
-import uniqueId from 'react-native-unique-id'
-export default function Register ({visible}) {
+
+export default function Register ({visible, navigation}) {
     const [box, setBox] = useState(-100)
     const [name, setName] = useState('')
     const [pass,setPass] = useState('') 
+    const {NotModalVisible, handleVisibleLogin, handleNotVisibleRegister} = useContext(Context)
     useEffect(() => {
         Keyboard.addListener("keyboardDidShow", _keyboardDidShow)
         Keyboard.addListener("keyboardDidHide", _keyboardDidHide)
@@ -23,11 +25,13 @@ export default function Register ({visible}) {
     const _keyboardDidHide = () => {
        setBox(-100)
       }
+
+      
     async function saveUser(name,pass) {
         const data = {
             name: name,
             pass: pass,
-            id: "8"
+            id: 1
         }
         try {
             const realm = await getRealm()
@@ -37,7 +41,11 @@ export default function Register ({visible}) {
         setName("")
         setPass("")
         alert("Conta criada com sucesso!")
+        // NotModalVisible()
+        handleNotVisibleRegister()
+        handleVisibleLogin()
         Keyboard.dismiss()
+        navigation.navigate('SearchChannel')
         }catch(err) {
             alert(err)
         }

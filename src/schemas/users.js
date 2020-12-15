@@ -3,7 +3,7 @@ export default class UserSchema {
         name: "user",
         primaryKey: 'id',
         properties: {
-            id: 'string',
+            id: 'int',
             name: "string",
             pass: "string"
         }

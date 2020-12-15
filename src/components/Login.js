@@ -1,12 +1,12 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
 import {Keyboard, Text} from 'react-native'
 import { ContainerLogin, Input, Title, ButtonSignUp} from './style'
+import {Context} from '../Context/AuthContext'
 import getRealm from '../services/realm'
 
-export default function Login ({visible}) {
-    const [authenticated, setAuthenticated] = useState(false)
+export default function Login ({visible,navigation}) {
+    const {NotModalVisible} = useContext(Context)
    async function handleLogin (name,pass) {
-
         try {
             const realm = await getRealm()
             const user =  realm.objects('user').filtered(`name = "${name}" AND pass = "${pass}"`)
@@ -18,7 +18,8 @@ export default function Login ({visible}) {
             for(let p of user) {
                     if(p.name === name && p.pass === pass) {
                         alert('Success')
-                        
+                        NotModalVisible()
+                        navigation.navigate('SearchChannel')
                     }
                 }
             }

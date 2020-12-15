@@ -81,3 +81,20 @@ export const ButtonSignUp = styled.TouchableOpacity `
     align-items: center;
     border-radius: 30px;
 `
+
+export const ContainerSearchChannel = styled.View ` 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    border: 2px solid black;
+
+`
+
+export const HeaderUser =  styled.View `
+    width: 100%;
+    height: 104px;
+    border-radius: 32px;
+    background-color: black;
+`

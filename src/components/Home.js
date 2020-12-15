@@ -1,14 +1,14 @@
-import React, { useState} from 'react'
-import { Text, View,TouchableOpacity } from 'react-native'
+import React, { useState, useContext } from 'react'
+import { Text, View,TouchableOpacity, Modal} from 'react-native'
 import {Container, Button} from './style'
 import ComponentModal from './ComponentModal'
-import { Modal } from 'react-native'
+import {Context} from '../Context/AuthContext'
 import Icon from 'react-native-vector-icons/AntDesign'
 
-export default function Home () {
-    const [modalVisible, setModalVisible] = useState(false)
-    const [visibleRegister, setVisibleRegister] = useState("none")
-    const [visibleLogin, setVisibleLogin] = useState("none")
+export default function Home ({navigation}) {
+    const {modalVisible, handleModalVisible, handleNotModalVisible, visibleRegister, visibleLogin, handleVisibleLogin, handleVisibleRegister, handleNotVisibleLogin, handleNotVisibleRegister} = useContext(Context)
+    // const [visibleRegister, setVisibleRegister] = useState("none")
+    // const [visibleLogin, setVisibleLogin] = useState("none")
     const [buttonVisible, setButtonVisible] = useState("flex")
 
 
@@ -16,8 +16,8 @@ export default function Home () {
         <Container>
             <Button onPress={() => {
                 setButtonVisible("none")
-                setModalVisible(true)
-                setVisibleLogin("flex")}} 
+                handleModalVisible()
+                handleVisibleLogin()}} 
                 src={buttonVisible} >
                 <Text style={{fontWeight: "bold", color: "black", fontSize: 25}}>
                     Sign In
@@ -26,9 +26,8 @@ export default function Home () {
 
             <Button src={buttonVisible} onPress={() => {
                 setButtonVisible("none")
-                setModalVisible(true)
-                setVisibleRegister("flex")}}>
-
+                handleModalVisible()
+                handleVisibleRegister()}}>
                 <Text style={{fontWeight: "bold", color: "black", fontSize: 25}}>
                     Sign Up
                 </Text>
@@ -49,14 +48,14 @@ export default function Home () {
             }}>
                 <TouchableOpacity onPress={() =>{
                     setButtonVisible("flex")
-                     setModalVisible(false)
-                     setVisibleLogin("none")
-                     setVisibleRegister("none")
+                    handleNotModalVisible()
+                    handleNotVisibleRegister()
+                    handleNotVisibleLogin()
                 }} style={{width: 100,height: 60}}>
                     <Icon name="arrowleft" size={30} color="white" />
                 </TouchableOpacity>
             </View>
-               <ComponentModal visibleRegister={visibleRegister} visibleLogin={visibleLogin}/>
+               <ComponentModal navigation={navigation} visibleRegister={visibleRegister} visibleLogin={visibleLogin}/>
 
             </Modal>
         </Container>
