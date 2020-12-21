@@ -1,11 +1,12 @@
 import React,{useEffect, useState, useContext} from 'react'
 import {Keyboard, Text} from 'react-native'
+import AsyncStorageStatic from '@react-native-async-storage/async-storage'
 import { ContainerLogin, Input, Title, ButtonSignUp} from './style'
 import {Context} from '../Context/AuthContext'
 import getRealm from '../services/realm'
 
 export default function Login ({visible,navigation}) {
-    const {NotModalVisible} = useContext(Context)
+    const {handleNotModalVisible, handleNotVisibleRegister, handleNotVisibleLogin} = useContext(Context)
    async function handleLogin (name,pass) {
         try {
             const realm = await getRealm()
@@ -18,7 +19,15 @@ export default function Login ({visible,navigation}) {
             for(let p of user) {
                     if(p.name === name && p.pass === pass) {
                         alert('Success')
-                        NotModalVisible()
+                        handleNotModalVisible()
+                        handleNotVisibleLogin()
+                        handleNotVisibleRegister()
+                        try {
+                            await AsyncStorageStatic.setItem('token','$$$')
+                            await AsyncStorageStatic.setItem('name', name)
+                        }catch(err) {
+                            alert(`Erro ao salvar token no dispositivo${err}`)
+                        }
                         navigation.navigate('SearchChannel')
                     }
                 }

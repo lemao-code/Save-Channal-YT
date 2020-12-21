@@ -25,13 +25,12 @@ export default function Register ({visible, navigation}) {
     const _keyboardDidHide = () => {
        setBox(-100)
       }
-
-      
+    
     async function saveUser(name,pass) {
+
         const data = {
             name: name,
             pass: pass,
-            id: 1
         }
         try {
             const realm = await getRealm()
@@ -41,11 +40,9 @@ export default function Register ({visible, navigation}) {
         setName("")
         setPass("")
         alert("Conta criada com sucesso!")
-        // NotModalVisible()
         handleNotVisibleRegister()
         handleVisibleLogin()
         Keyboard.dismiss()
-        navigation.navigate('SearchChannel')
         }catch(err) {
             alert(err)
         }

@@ -87,14 +87,25 @@ export const ContainerSearchChannel = styled.View `
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: blue;
-    border: 2px solid black;
+    background-color: #FFFFFF;
+
 
 `
 
 export const HeaderUser =  styled.View `
     width: 100%;
     height: 104px;
-    border-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
     background-color: black;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+`
+export const InputSearch = styled.TextInput ` 
+    width: 280px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #EBEBEB;
+    margin-top: 15px;
 `
