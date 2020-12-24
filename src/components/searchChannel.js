@@ -1,14 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { Context } from '../Context/AuthContext'
 import {TouchableOpacity, Text, View} from 'react-native'
 import {ContainerSearchChannel, HeaderUser} from './style'
 import Icon from 'react-native-vector-icons/AntDesign'
 import AsyncStorageStatic from '@react-native-async-storage/async-storage'
 import Search from './Search'
+
+
 export default function SearchChannel ({navigation}) {
+
+    const {searchVisibleHeader} = useContext(Context)
+  
     const [name, setName] = useState('')
     
     useEffect(() => {
         async function getName() {
+            searchVisibleHeader()
             const name = await AsyncStorageStatic.getItem('name')
             setName(name)
         }

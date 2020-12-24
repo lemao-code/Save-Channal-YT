@@ -4,7 +4,7 @@ import Home from './Home'
 import {Context} from '../Context/AuthContext'
 
 export default function Conditional ({navigation}) {
-
+    
     const { token } = useContext(Context)
     if(token == null) {
         return <Home navigation={navigation} />

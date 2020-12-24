@@ -109,3 +109,12 @@ export const InputSearch = styled.TextInput `
     background-color: #EBEBEB;
     margin-top: 15px;
 `
+
+export const ContainerList = styled.View `
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    margin-top: 10px;
+
+
+`

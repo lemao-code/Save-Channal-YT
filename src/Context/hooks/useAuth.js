@@ -6,6 +6,7 @@ export default function useAuth() {
     const [modalVisible, setModalVisible] = useState(false)
     const [visibleRegister, setVisibleRegister] = useState("none")
     const [visibleLogin, setVisibleLogin] = useState("none")
+    const [headerVisible, setHeaderVisible] = useState(true)
     const [token, setToken] = useState('')
 
     useEffect(() => {
@@ -17,7 +18,9 @@ export default function useAuth() {
         getToken()
     }, [])
 
-
+    function searchVisibleHeader () {
+        setHeaderVisible(false)
+    }
     function handleModalVisible () {
         setModalVisible(true)
     }
@@ -45,5 +48,5 @@ export default function useAuth() {
         setAuthenticated(true)
     }
     return {modalVisible, handleModalVisible, handleNotModalVisible, handleVisibleRegister, handleNotVisibleRegister, handleVisibleLogin, handleNotVisibleLogin, 
-            handleAuthenticated, visibleLogin, visibleRegister, authenticated, token }
+            handleAuthenticated, searchVisibleHeader, headerVisible ,visibleLogin, visibleRegister, authenticated, token }
 }
