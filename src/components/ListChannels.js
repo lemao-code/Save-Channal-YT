@@ -1,4 +1,5 @@
 import React, {useState, useContext , useEffect} from 'react'
+import { Context } from '../Context/AuthContext'
 import {Text, View, Image, StyleSheet, TouchableOpacity, FlatList} from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
 import { ContainerList } from './style'
@@ -7,6 +8,7 @@ import { ContainerList } from './style'
 
 
 export default function ListChannels ({channels}) {
+    const { saveFav } = useContext(Context)
     const totalResults = channels.data.pageInfo.resultsPerPage
     const [perPage, setPerPage ] = useState(10)
     const [page, setPage] = useState(1)
@@ -50,7 +52,7 @@ export default function ListChannels ({channels}) {
                  <Image style={styles.img} source={{ uri: item.snippet.thumbnails.default.url }} />
                 <Text style={{color: "black", fontSize: 20, marginLeft: 20, marginTop: 15}}>{item.snippet.title }</Text>           
             </ContainerList>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => saveFav(item.snippet.title, item.snippet.thumbnails.default.url, item.snippet.channelId)}>
                 <View style={{marginLeft: 30, marginTop: 20}}><Icon name="star" color="#DCDCDC" size={30} /></View>
             </TouchableOpacity>
         </View>

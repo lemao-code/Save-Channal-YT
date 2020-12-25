@@ -101,6 +101,7 @@ export const HeaderUser =  styled.View `
     display: flex;
     flex-direction: row;
     padding: 10px;
+    align-items: center;
 `
 export const InputSearch = styled.TextInput ` 
     width: 280px;

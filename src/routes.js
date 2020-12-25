@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from './components/Home'
 import SearchChannel from './components/searchChannel'
+import Fav from './components/Fav'
 import {Context} from './Context/AuthContext'
 import Icon from 'react-native-vector-icons/AntDesign'
 import Conditional from './components/Conditional'
@@ -24,6 +25,9 @@ export default function Routes () {
                     headerLeft: () => <Icon name="home" size={50}  color="#FFFFFF" />
                     }}/>
                 <Stack.Screen name="SearchChannel" component={SearchChannel} options={{
+                        headerShown: false
+                }} />
+                 <Stack.Screen name="Fav" component={Fav} options={{
                         headerShown: false
                 }} />
                 <Stack.Screen name="Home" component={Home} options={{title: "Welcome to the jungle",

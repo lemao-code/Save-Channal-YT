@@ -28,7 +28,10 @@ export default function SearchChannel ({navigation}) {
                 <Icon name="user" size={30} color="#FFFF"/>
                 <Text style={{color: "white", fontSize: 25}}>{name}</Text>
                 <View style={{display: "flex", flexDirection: "row", marginLeft: 180}}>
-                    <Icon name="star" size={30} color="#FFFF"/>
+                    <TouchableOpacity onPress={() => navigation.navigate('Fav')}>
+                        <Icon name="star" size={30} color="#FFFF"/>
+                    </TouchableOpacity>
+                    
                     <TouchableOpacity style={{marginLeft: 20}} onPress={async () => {
                         try {
                             await AsyncStorageStatic.removeItem('token')
