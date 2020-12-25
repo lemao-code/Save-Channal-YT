@@ -6,105 +6,105 @@ import {View, TouchableOpacity, Keyboard} from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
 import axios from 'axios'
 
-const data = [{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 1
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 2
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 3
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 4
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 5
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 6
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 7
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 8
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 9
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 10
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 11
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 12
-},{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 13
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 14
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 15
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 16
-},{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 17
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 18
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 19
-},
-{
-    name: "Lemao chaveiro",
-    img: "image",
-    id: 20
-},
-]
+// const data = [{
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "1"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "2"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "3"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "4"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "5"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "6"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "7"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "8"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "9"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "10"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "11"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "12"
+// },{
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "13"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "14"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "15"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "16"
+// },{
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "17"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "18"
+// },
+// {
+//     name: "Lemao chaveiro",
+//     img: "image",
+//     id: "19"
+// },
+// {
+//     name: "LSerraaa????",
+//     img: "image",
+//     id: "20"
+// },
+// ]
 
 export default function Search () {
     const [channels, setChannels] = useState(null)
@@ -135,10 +135,10 @@ export default function Search () {
             </View>
 
             <View>
-                {channels || data == null ? (
+                {channels == null ? (
                     <Empty />
                 ) : (
-                    <ListChannels channels={data} />
+                    <ListChannels channels={channels} />
                 )}
             </View>
         </View>

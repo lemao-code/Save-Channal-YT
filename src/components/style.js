@@ -115,6 +115,6 @@ export const ContainerList = styled.View `
     flex-direction: row;
     width: 300px;
     margin-top: 10px;
-
+    height: 50px;
 
 `
